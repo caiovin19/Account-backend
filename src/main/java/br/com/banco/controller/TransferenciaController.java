@@ -4,6 +4,7 @@ import br.com.banco.entities.Conta;
 import br.com.banco.entities.Transferencia;
 import br.com.banco.service.ContaService;
 import br.com.banco.service.TransferenciaService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +18,7 @@ import java.util.List;
 public class TransferenciaController {
 
 
+    @Autowired
     public TransferenciaService service;
 
     @GetMapping
@@ -27,7 +29,7 @@ public class TransferenciaController {
     }
 
     @GetMapping(value="/{id}")
-    public ResponseEntity<Transferencia> findById(@PathVariable Long id){
+    public ResponseEntity<Transferencia> findById(@PathVariable Integer id){
         Transferencia obj= service.findById(id);
         return ResponseEntity.ok().body(obj);
     }

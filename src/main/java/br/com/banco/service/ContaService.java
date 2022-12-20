@@ -16,7 +16,7 @@ public class ContaService {
     public List<Conta> findAll(){
         return repository.findAll();
     }
-    public Conta findById(Long id) {
+    public Conta findById(Integer id) {
         Optional<Conta> obj=repository.findById(id);
         return obj.get();
     }
