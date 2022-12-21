@@ -1,5 +1,6 @@
 package br.com.banco.entities;
 
+<<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -7,6 +8,11 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+=======
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Date;
+>>>>>>> refs/remotes/origin/main
 
 @Entity
 @Table(name= "transferencia")
@@ -24,6 +30,7 @@ public class Transferencia implements Serializable {
     private String tipo;
     @Column(name = "nome_operador_transacao")
     private String nomeOperadorTransacao;
+<<<<<<< HEAD
 
     @Column(name = "conta_id")
     private Integer idConta;
@@ -39,6 +46,18 @@ public class Transferencia implements Serializable {
 
     public Transferencia(Integer idIndentity, Date dataTransferencia, Double valor, String tipo, String nomeOperadorTransicao, Integer idConta) {
         this.idIdentity = idIndentity;
+=======
+    @Column(name = "conta_id")
+    private Integer idConta;
+
+    public Transferencia(){
+    }
+
+
+
+    public Transferencia(Integer idIdentity, Date dataTransferencia, Double valor, String tipo, String nomeOperadorTransicao, Integer idConta) {
+        this.idIdentity = idIdentity;
+>>>>>>> refs/remotes/origin/main
         this.dataTransferencia = dataTransferencia;
         this.valor = valor;
         this.tipo = tipo;
@@ -46,7 +65,11 @@ public class Transferencia implements Serializable {
         this.idConta = idConta;
     }
 
+<<<<<<< HEAD
     public long getIdIdentity() {
+=======
+    public Integer getIdIdentity() {
+>>>>>>> refs/remotes/origin/main
         return idIdentity;
     }
 
@@ -93,8 +116,11 @@ public class Transferencia implements Serializable {
     public void setIdConta(Integer idConta) {
         this.idConta = idConta;
     }
+<<<<<<< HEAD
 
     public List<Conta> getContas() {
         return contas;
     }
+=======
+>>>>>>> refs/remotes/origin/main
 }

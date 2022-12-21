@@ -1,5 +1,6 @@
 package br.com.banco;
 
+<<<<<<< HEAD
 import br.com.banco.entities.Conta;
 import br.com.banco.entities.Transferencia;
 import br.com.banco.repository.ContaRepository;
@@ -20,6 +21,16 @@ class BancoApplicationTests {
     @Test
     void contextLoads() {
 
+=======
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class BancoApplicationTests {
+
+    @Test
+    void contextLoads() {
+>>>>>>> refs/remotes/origin/main
     }
 
 }

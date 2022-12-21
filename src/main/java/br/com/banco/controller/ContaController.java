@@ -1,5 +1,6 @@
 package br.com.banco.controller;
 
+<<<<<<< HEAD
 import br.com.banco.entities.Conta;
 import br.com.banco.service.ContaService;
 
@@ -31,5 +32,12 @@ public class ContaController {
         return ResponseEntity.ok().body(obj);
     }
 
+=======
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class ContaController {
+
+>>>>>>> refs/remotes/origin/main
 
 }

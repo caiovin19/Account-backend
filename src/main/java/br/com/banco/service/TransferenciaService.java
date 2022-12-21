@@ -1,5 +1,6 @@
 package br.com.banco.service;
 
+<<<<<<< HEAD
 import br.com.banco.entities.Conta;
 import br.com.banco.entities.Transferencia;
 import br.com.banco.repository.TransferenciaRepository;
@@ -10,11 +11,18 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+=======
+import br.com.banco.repository.TransferenciaRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+>>>>>>> refs/remotes/origin/main
 @Service
 public class TransferenciaService{
 
     @Autowired
     private TransferenciaRepository repository;
+<<<<<<< HEAD
 
     public List<Transferencia> findAll(){
         return repository.findAll();
@@ -24,4 +32,6 @@ public class TransferenciaService{
         Optional<Transferencia> obj=repository.findById(id);
         return obj.get();
     }
+=======
+>>>>>>> refs/remotes/origin/main
 }
