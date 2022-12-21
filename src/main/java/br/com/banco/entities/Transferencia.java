@@ -23,10 +23,13 @@ public class Transferencia implements Serializable {
     @Column(name = "conta_id")
     private Integer idConta;
 
+    public Transferencia(){
+    }
 
 
-    public Transferencia(Integer idIndentity, Date dataTransferencia, Double valor, String tipo, String nomeOperadorTransicao, Integer idConta) {
-        this.idIdentity = idIndentity;
+
+    public Transferencia(Integer idIdentity, Date dataTransferencia, Double valor, String tipo, String nomeOperadorTransicao, Integer idConta) {
+        this.idIdentity = idIdentity;
         this.dataTransferencia = dataTransferencia;
         this.valor = valor;
         this.tipo = tipo;
@@ -34,7 +37,7 @@ public class Transferencia implements Serializable {
         this.idConta = idConta;
     }
 
-    public long getIdIdentity() {
+    public Integer getIdIdentity() {
         return idIdentity;
     }
 
@@ -74,7 +77,7 @@ public class Transferencia implements Serializable {
         this.nomeOperadorTransacao = nomeOperadorTransacao;
     }
 
-    public long getIdConta() {
+    public Integer getIdConta() {
         return idConta;
     }
 

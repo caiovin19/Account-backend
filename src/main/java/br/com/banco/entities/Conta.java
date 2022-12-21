@@ -3,16 +3,20 @@ package br.com.banco.entities;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.Id;
 
 @Entity
 @Table(name= "conta")
 
 public class Conta implements Serializable {
     private static final long serialVersionUID = 1L;
+
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id_conta", nullable = false)
     private Integer idConta;
+
+
     @Column(name = "nome_responsavel")
     private String nomeResponsavel;
 
@@ -26,7 +30,7 @@ public class Conta implements Serializable {
         this.nomeResponsavel = nomeResponsavel;
     }
 
-    public long getIdConta() {
+    public Integer getIdConta() {
         return idConta;
     }
 
