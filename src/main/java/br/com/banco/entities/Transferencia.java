@@ -1,8 +1,12 @@
 package br.com.banco.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name= "transferencia")
@@ -23,6 +27,11 @@ public class Transferencia implements Serializable {
 
     @Column(name = "conta_id")
     private Integer idConta;
+
+    @ManyToMany(mappedBy = "transferencias")
+    @JsonIgnore
+    private List<Conta> contas=new ArrayList<>();
+
 
 
     public Transferencia() {
@@ -83,5 +92,9 @@ public class Transferencia implements Serializable {
 
     public void setIdConta(Integer idConta) {
         this.idConta = idConta;
+    }
+
+    public List<Conta> getContas() {
+        return contas;
     }
 }

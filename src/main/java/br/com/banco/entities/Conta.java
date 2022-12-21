@@ -1,5 +1,7 @@
 package br.com.banco.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -18,6 +20,9 @@ public class Conta implements Serializable {
     @Column(name = "nome_responsavel")
     private String nomeResponsavel;
 
+    @ManyToMany
+   @JoinTable(name="tb_conta_transferencia", joinColumns = @JoinColumn(name="id_conta"), inverseJoinColumns = @JoinColumn(name="conta_id"))
+    List<Transferencia>transferencias=new ArrayList<>();
 
 
     public Conta(){
@@ -44,6 +49,11 @@ public class Conta implements Serializable {
     public void setNomeResponsavel(String nomeResponsavel) {
         this.nomeResponsavel = nomeResponsavel;
     }
+
+
+    public List<Transferencia> getTransferencias() {
+       return transferencias;
+   }
 
     @Override
     public boolean equals(Object o) {
