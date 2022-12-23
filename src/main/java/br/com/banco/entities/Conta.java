@@ -24,6 +24,7 @@ public class Conta implements Serializable {
     private Integer idConta;
     @Column(name = "nome_responsavel")
     private String nomeResponsavel;
+    private Double soma;
     @ManyToMany
    @JoinTable(name="tb_conta_transferencia", joinColumns = @JoinColumn(name="id_conta"), inverseJoinColumns = @JoinColumn(name="conta_id"))
     List<Transferencia>transferencias=new ArrayList<>();
@@ -57,6 +58,14 @@ public class Conta implements Serializable {
     public List<Transferencia> getTransferencias() {
        return transferencias;
    }
+
+    public Double getSoma() {
+        return soma;
+    }
+
+    public void setSoma(Double soma) {
+        this.soma = soma;
+    }
 
     @Override
     public boolean equals(Object o) {

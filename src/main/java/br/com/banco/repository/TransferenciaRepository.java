@@ -24,4 +24,6 @@ public interface TransferenciaRepository extends JpaRepository<Transferencia, In
 
 
 
+
+
 }

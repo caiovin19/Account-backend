@@ -103,4 +103,16 @@ public class Transferencia implements Serializable {
         return contas;
     }
 
+    @Override
+    public String toString() {
+        return "Transferencia{" +
+                "idIdentity=" + idIdentity +
+                ", dataTransferencia=" + dataTransferencia +
+                ", valor=" + valor +
+                ", tipo='" + tipo + '\'' +
+                ", nomeOperadorTransacao='" + nomeOperadorTransacao + '\'' +
+                ", idConta=" + idConta +
+                ", contas=" + contas +
+                '}';
+    }
 }
