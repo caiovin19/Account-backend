@@ -5,10 +5,7 @@ import br.com.banco.service.ContaService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,18 +17,21 @@ public class ContaController {
     @Autowired
     public ContaService service;
 
-    @GetMapping
-    public ResponseEntity<List<Conta>> findAll() {
-        List<Conta> list = service.findAll();
-        return ResponseEntity.ok().body(list);
-    }
+//    @CrossOrigin
+//    @GetMapping
+//    public ResponseEntity<List<Conta>> findAll() {
+//        List<Conta> list = service.findAll();
+//        return ResponseEntity.ok().body(list);
+//    }
 
+//    @CrossOrigin
 //    @GetMapping(value="/{id}")
 //    public ResponseEntity<Conta> findById(@PathVariable Integer id){
 //       Conta obj= service.findById(id);
 //        return ResponseEntity.ok().body(obj);
 //   }
 
+    @CrossOrigin
     @GetMapping(value = "/{id}")
     public ResponseEntity<Conta> dadosDaConta(@PathVariable Integer id) {
         Conta obj = service.findById(id);

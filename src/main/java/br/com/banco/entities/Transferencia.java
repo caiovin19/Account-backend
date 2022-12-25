@@ -1,6 +1,7 @@
 package br.com.banco.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -8,11 +9,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
-import javax.persistence.*;
-import java.io.Serializable;
-import java.util.Date;
-
 
 @Entity
 @Table(name= "transferencia")
@@ -23,6 +19,7 @@ public class Transferencia implements Serializable {
     @Column(name = "id", nullable = false)
     private Integer idIdentity;
     @Column(name = "data_transferencia")
+    @JsonFormat(shape=JsonFormat.Shape.STRING,pattern="dd-MM-yyyy", timezone="GMT")
     private Date dataTransferencia;
     @Column(name = "valor")
     private Double valor;

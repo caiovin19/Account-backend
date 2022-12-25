@@ -3,6 +3,7 @@ package br.com.banco.service;
 import br.com.banco.entities.Conta;
 
 import br.com.banco.repository.ContaRepository;
+import br.com.banco.service.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,9 +20,6 @@ public class ContaService {
     }
     public Conta findById(Integer id) {
         Optional<Conta> obj=repository.findById(id);
-        return obj.get();
+        return obj.orElseThrow(()->new ResourceNotFoundException(id));
     }
-
-
-
 }
