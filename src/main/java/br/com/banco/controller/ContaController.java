@@ -41,7 +41,8 @@ public class ContaController {
         for (Conta x : conta) {
             List<Transferencia> transferencia = x.getTransferencias();
             for (Transferencia z : transferencia) {
-                soma+=z.getValor();
+                if(z.getValor()>0){
+                soma+=z.getValor();}
             }
         }
         obj.setSoma(soma);

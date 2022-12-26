@@ -49,9 +49,11 @@ public class TransferenciaController {
         Date end = end1.convertDate(dateDto.getEndDate());
 
         Optional<Transferencia> trasferencias = transferenciaRepository.getAllBetweenDates(start, end, id);
+        Double somaTransf=0.0;
         if(!trasferencias.isPresent()){
-            throw new Exception("Período não encontrado");
-        }
+            throw new Exception("Período não encontrado");}
+
+
         return ResponseEntity.ok(trasferencias);
 
     }

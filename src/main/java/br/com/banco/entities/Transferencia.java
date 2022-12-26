@@ -30,6 +30,8 @@ public class Transferencia implements Serializable {
     @Column(name = "conta_id")
     private Integer idConta;
 
+    private Double valorTransf;
+
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "transferencias")
     @JsonIgnore
     private List<Conta> contas=new ArrayList<>();
@@ -39,13 +41,14 @@ public class Transferencia implements Serializable {
     public Transferencia() {
     }
 
-    public Transferencia(Integer idIdentity, Date dataTransferencia, Double valor, String tipo, String nomeOperadorTransicao, Integer idConta) {
+    public Transferencia(Integer idIdentity, Date dataTransferencia, Double valor, String tipo, String nomeOperadorTransicao, Integer idConta,Double valorTransf) {
         this.idIdentity = idIdentity;
         this.dataTransferencia = dataTransferencia;
         this.valor = valor;
         this.tipo = tipo;
         this.nomeOperadorTransacao = nomeOperadorTransicao;
         this.idConta = idConta;
+        this.valorTransf=valorTransf;
     }
 
     public Integer getIdIdentity() {
@@ -98,6 +101,14 @@ public class Transferencia implements Serializable {
 
     public List<Conta> getContas() {
         return contas;
+    }
+
+    public Double getValorTransf(Double somaTransf) {
+        return valorTransf;
+    }
+
+    public void setValorTransf(Double valorTransf) {
+        this.valorTransf = valorTransf;
     }
 
     @Override
