@@ -23,9 +23,9 @@ public class TransferenciaService {
         return repository.findAll();
     }
 
-//    public Transferencia findById(Integer id) {
-//        Optional<Transferencia> obj=repository.findById(id);
-//        return obj.get();}
+    public Transferencia findById(Integer id) {
+        Optional<Transferencia> obj=repository.findById(id);
+        return obj.get();}
 
 
 }

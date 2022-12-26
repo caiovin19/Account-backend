@@ -1,4 +1,5 @@
 package br.com.banco.controller;
+import br.com.banco.controller.exception.ResourceExceptionHandler;
 import br.com.banco.entities.Conta;
 import br.com.banco.entities.Transferencia;
 import br.com.banco.service.ContaService;
@@ -33,19 +34,21 @@ public class ContaController {
 
     @CrossOrigin
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Conta> dadosDaConta(@PathVariable Integer id) {
-        Conta obj = service.findById(id);
-        List<Conta> conta = new ArrayList<>();
-        conta.add(obj);
-        Double soma=0.0;
-        for (Conta x : conta) {
-            List<Transferencia> transferencia = x.getTransferencias();
-            for (Transferencia z : transferencia) {
-                if(z.getValor()>0){
-                soma+=z.getValor();}
+    public ResponseEntity<Conta> dadosDaConta(@PathVariable Integer id) throws Exception {
+            Conta obj = service.findById(id);
+            List<Conta> conta = new ArrayList<>();
+            conta.add(obj);
+            Double soma = 0.0;
+            for (Conta x : conta) {
+                List<Transferencia> transferencia = x.getTransferencias();
+                for (Transferencia z : transferencia) {
+                    if (z.getValor() > 0) {
+                        soma += z.getValor();
+                    }
+                }
             }
+            obj.setSoma(soma);
+            return ResponseEntity.ok().body(obj);
         }
-        obj.setSoma(soma);
-        return ResponseEntity.ok().body(obj);
     }
-}
+

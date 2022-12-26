@@ -6,6 +6,7 @@ import br.com.banco.entities.Transferencia;
 import br.com.banco.repository.TransferenciaRepository;
 import br.com.banco.service.TransferenciaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.*;
@@ -24,19 +25,19 @@ public class TransferenciaController {
 
 
 
-//    @CrossOrigin(origins = "http://localhost:8080")
-//    @GetMapping
-//    public ResponseEntity<List<Transferencia>> findAll() {
-//        List<Transferencia> list = service.findAll();
-//        return ResponseEntity.ok().body(list);
-//
-//    }
-// @CrossOrigin(origins = "http://localhost:8080")
-//    @GetMapping(value="/{id}")
-//   public ResponseEntity<Transferencia> findById(@PathVariable Integer id){
-//       Transferencia obj= service.findById(id);
-//       return ResponseEntity.ok().body(obj);
-//    }
+    @CrossOrigin(origins = "http://localhost:8080")
+    @GetMapping
+    public ResponseEntity<List<Transferencia>> findAll() {
+        List<Transferencia> list = service.findAll();
+        return ResponseEntity.ok().body(list);
+
+    }
+ @CrossOrigin(origins = "http://localhost:8080")
+    @GetMapping(value="/{id}")
+   public ResponseEntity<Transferencia> findById(@PathVariable Integer id){
+       Transferencia obj= service.findById(id);
+       return ResponseEntity.ok().body(obj);
+    }
 
     @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping(value = "/data/{id}")
@@ -49,7 +50,6 @@ public class TransferenciaController {
         Date end = end1.convertDate(dateDto.getEndDate());
 
         Optional<Transferencia> trasferencias = transferenciaRepository.getAllBetweenDates(start, end, id);
-        Double somaTransf=0.0;
         if(!trasferencias.isPresent()){
             throw new Exception("Período não encontrado");}
 
