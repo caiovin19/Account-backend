@@ -35,6 +35,7 @@ public class ContaController {
     @CrossOrigin
     @GetMapping(value = "/{id}")
     public ResponseEntity<Conta> dadosDaConta(@PathVariable Integer id) throws Exception {
+
             Conta obj = service.findById(id);
             List<Conta> conta = new ArrayList<>();
             conta.add(obj);

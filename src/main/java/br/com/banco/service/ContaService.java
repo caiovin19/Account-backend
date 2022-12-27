@@ -19,12 +19,8 @@ public class ContaService {
         return repository.findAll();
     }
     public Conta findById(Integer id) {
-        if (id == null) {
-            throw new ResourceNotFoundException("Conta invalida");
-
-        } else {
 
         Optional<Conta> obj=repository.findById(id);
         return obj.orElseThrow(()->new ResourceNotFoundException(id));
-    }}
+    }
 }

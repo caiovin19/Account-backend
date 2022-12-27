@@ -41,7 +41,7 @@ public class TransferenciaController {
 
     @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping(value = "/data/{id}")
-    public ResponseEntity<Object> findTranferenciasPorData(@RequestBody DateDto dateDto, @PathVariable Integer id) throws Exception {
+    public ResponseEntity<List<Transferencia>> findTranferenciasPorData(@RequestBody DateDto dateDto, @PathVariable Integer id) throws Exception {
 
         URL start1 = new URL();
         Date start = start1.convertDate(dateDto.getStartDate());
@@ -49,9 +49,9 @@ public class TransferenciaController {
         URL end1 = new URL();
         Date end = end1.convertDate(dateDto.getEndDate());
 
-        Optional<Transferencia> trasferencias = transferenciaRepository.getAllBetweenDates(start, end, id);
-        if(!trasferencias.isPresent()){
-            throw new Exception("Período não encontrado");}
+        List<Transferencia> trasferencias = transferenciaRepository.getAllBetweenDates(start, end, id);
+//        if(!trasferencias.isPresent()){
+//            throw new Exception("Período não encontrado");}
 
 
         return ResponseEntity.ok(trasferencias);
