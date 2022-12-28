@@ -22,6 +22,7 @@ public class Conta implements Serializable {
     private String nomeResponsavel;
     private Double soma;
 
+    private Double totalTransferidoPorPeriodo;
 
     @ManyToMany
    @JoinTable(name="tb_conta_transferencia", joinColumns = @JoinColumn(name="id_conta"), inverseJoinColumns = @JoinColumn(name="conta_id"))
@@ -31,11 +32,12 @@ public class Conta implements Serializable {
 
     }
 
-    public Conta(Integer idConta, String nomeResponsavel, Double soma, Double valorTransf) {
+    public Conta(Integer idConta, String nomeResponsavel, Double soma, Double valorTransf, Double totalTransferidoPorPeriodo) {
         this.idConta = idConta;
         this.nomeResponsavel = nomeResponsavel;
         this.soma=soma;
 //        this.valorTransf=valorTransf;
+        this.totalTransferidoPorPeriodo = totalTransferidoPorPeriodo;
     }
 
     public Integer getIdConta() {
@@ -67,7 +69,13 @@ public class Conta implements Serializable {
         this.soma = soma;
     }
 
+    public Double getTotalTransferidoPorPeriodo() {
+        return totalTransferidoPorPeriodo;
+    }
 
+    public void setTotalTransferidoPorPeriodo(Double totalTransferidoPorPeriodo) {
+        this.totalTransferidoPorPeriodo = totalTransferidoPorPeriodo;
+    }
 
     @Override
     public boolean equals(Object o) {
